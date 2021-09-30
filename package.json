@@ -1,0 +1,21 @@
+{
+  "name": "GPS",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.4",
+    "cron": "^1.8.2",
+    "cron-job": "^1.0.3",
+    "dayjs": "^1.10.7",
+    "dotenv": "^10.0.0",
+    "mongoose": "^6.0.8",
+    "node-cron": "^3.0.0"
+  }
+}
