@@ -1,8 +1,8 @@
-const { Shema, model } = require('mongoose')
+const { Schema, model } = require('mongoose')
 
-const WeatherSchema = Shema({
+const WeatherSchema = Schema({
     cityId: {
-        type: Integer,
+        type: String,
         require: true
     },
     cityName: {
@@ -18,23 +18,23 @@ const WeatherSchema = Shema({
         require: true
     },
     temp: {
-        type: Integer,
+        type: Number,
         require: true
     },
     tempMin: {
-        type: Integer,
+        type: Number,
         require: true
     },
     tempMax: {
-        type: Integer,
+        type: Number,
         require: true
     },
     feelsLike: {
-        type: Integer,
+        type: Number,
         require: true
     },
     windSpeed: {
-        type: Integer,
+        type: Number,
         require: true
     },
     windDeg: {
@@ -48,8 +48,9 @@ const WeatherSchema = Shema({
 });
 
 WeatherSchema.method('toJSON', function() {
-    const { __v, ...object } = this.toObject();
+    const { __v, _id, ...object } = this.toObject();
+    object.uid = _id;
     return object;
 });
 
-module.exports = model('Weather', WeatherSchema);
+module.exports = model( 'Weather', WeatherSchema );
