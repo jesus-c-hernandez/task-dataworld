@@ -7,7 +7,7 @@ const { getWeather } = require('./services/weather.service');
 const { saveWeather } = require('./services/db.service')
 
 let isDBOnline = false;
-let start = 1601632800;
+let start = 1602291600;
 
 const initWeather = async () => {
     // Obtener el arreglo de las ciudades

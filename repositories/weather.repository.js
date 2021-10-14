@@ -2,11 +2,9 @@ const Weather = require('../models/weather.model')
 
 const createWeather = async (auxWeather) => {
     try {
-        console.log('AUX',auxWeather);
+        console.log( typeof auxWeather);
     
-        const weather = new Weather({
-            ...auxWeather
-        });
+        const weather = new Weather({...auxWeather});
 
         console.log('weather',weather);
 
