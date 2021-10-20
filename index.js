@@ -7,7 +7,7 @@ const { getWeather } = require('./services/weather.service');
 const { saveWeather } = require('./services/db.service')
 
 let isDBOnline = false;
-let start = 1602291600;
+let start = 1602806400;
 
 const initWeather = async () => {
     // Obtener el arreglo de las ciudades
@@ -18,7 +18,8 @@ const initWeather = async () => {
         // Guardar los datos en db
         await saveWeather(city.id, city.name, city.country, listWeather);
     })
-
+    // 86400 seg = 1 dia
+    start += 86400;
 }
 
 const initDB = async () => {
@@ -41,8 +42,10 @@ const stringTimes = {
 	1: '*/1 * * * * *',
 }
 
-
-const Job = new CronJob( stringTimes[seconds], async () => {
+// 0 1 * * * cada dia a la 1am
+// */15 * * * * cada 15 minutos
+// */2 * * * * cada 2 minutos
+const Job = new CronJob( '*/15 * * * *' , async () => {
 	try {
         if(!isDBOnline) {
             await initDB();
