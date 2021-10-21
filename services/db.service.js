@@ -6,10 +6,8 @@ const { createWeather } = require('../repositories/weather.repository')
 const saveWeather = async (cityId, name, country, weatherList) => {
 
     await asyncForEach(weatherList, async (weather) => {
-        console.log('WT1', weather);
         let date  = dayjs.unix(weather.dt).toDate();
         date = dayjs(date).format('YYYY-MM-DD hh:mm:ss');
-        console.log('DATE', date);
         const auxWeather = {
             cityId: cityId,
             cityName: name,
@@ -23,7 +21,6 @@ const saveWeather = async (cityId, name, country, weatherList) => {
             windDeg: weather.wind.deg, // degrees (meteorological)
             weatherMain: weather.weather[0].main
         }
-
         await createWeather(auxWeather);
     });
 }

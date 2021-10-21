@@ -20,6 +20,9 @@ const initWeather = async () => {
     })
     // 86400 seg = 1 dia
     start += 86400;
+    if(start > 1605139200){
+        console.log('Tarea finalizada', new Date().toISOString());
+    }
 }
 
 const initDB = async () => {
@@ -47,7 +50,7 @@ const stringTimes = {
 // */2 * * * * cada 2 minutos
 const Job = new CronJob( '* * * * * *' , async () => {
 	try {
-        console.log('Tarea iniciada');
+        console.log('Tarea iniciada', new Date().toISOString());
         if(!isDBOnline) {
             await initDB();
             isDBOnline = true;
