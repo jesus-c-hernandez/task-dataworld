@@ -7,7 +7,7 @@ const saveWeather = async (cityId, name, country, weatherList) => {
 
     await asyncForEach(weatherList, async (weather) => {
         let date  = dayjs.unix(weather.dt).toDate();
-        date = dayjs(date).format('YYYY-MM-DD hh:mm:ss');
+        date = dayjs(date).format('YYYY-MM-DD HH:mm:ss');
         const auxWeather = {
             cityId: cityId,
             cityName: name,
