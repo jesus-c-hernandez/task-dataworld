@@ -3,7 +3,7 @@ var dayjs = require('dayjs')
 const { asyncForEach } = require('../utils/utils')
 const { createWeather } = require('../repositories/weather.repository')
 
-const saveWeather = async (cityId, name, country, weatherList) => {
+const saveWeather = async(cityId, name, country, weatherList) => {
 
     await asyncForEach(weatherList, async (weather) => {
         let date  = dayjs.unix(weather.dt).toDate();
@@ -26,5 +26,5 @@ const saveWeather = async (cityId, name, country, weatherList) => {
 }
 
 module.exports = {
-    saveWeather
+  saveWeather
 }
