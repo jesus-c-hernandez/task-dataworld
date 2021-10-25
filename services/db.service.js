@@ -1,5 +1,5 @@
 require('dotenv').config()
-var dayjs = require('dayjs')
+let dayjs = require('dayjs')
 const { asyncForEach } = require('../utils/utils')
 const { createWeather } = require('../repositories/weather.repository')
 

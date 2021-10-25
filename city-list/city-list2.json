@@ -1,0 +1,94 @@
+{
+    "cityList": [
+        {
+            "id": 3482886,
+            "name": "Cuauhtémoc",
+            "state": "",
+            "country": "MX",
+            "coord": {
+                "lon": -98.150002,
+                "lat": 22.533331
+            }
+        },
+        {
+            "id": 3482929,
+            "name": "González",
+            "state": "",
+            "country": "MX",
+            "coord": {
+                "lon": -98.433327,
+                "lat": 22.83333
+            }
+        },
+        {
+            "id": 3483063,
+            "name": "Xicoténcatl",
+            "state": "",
+            "country": "MX",
+            "coord": {
+                "lon": -98.883331,
+                "lat": 23.01667
+            }
+        },
+        {
+            "id": 3483197,
+            "name": "San Fernando",
+            "state": "",
+            "country": "MX",
+            "coord": {
+                "lon": -98.150002,
+                "lat": 24.85
+            }
+        },
+        {
+            "id": 3483393,
+            "name": "Ciudad Gustavo Díaz Ordaz",
+            "state": "",
+            "country": "MX",
+            "coord": {
+                "lon": -98.583328,
+                "lat": 26.23333
+            }
+        },
+        {
+            "id": 3483503,
+            "name": "Tenepanco",
+            "state": "",
+            "country": "MX",
+            "coord": {
+                "lon": -98.966667,
+                "lat": 21.33333
+            }
+        },
+        {
+            "id": 3483989,
+            "name": "Buenavista",
+            "state": "",
+            "country": "MX",
+            "coord": {
+                "lon": -99.599998,
+                "lat": 22.4
+            }
+        },
+        {
+            "id": 3513966,
+            "name": "Zumpango",
+            "state": "",
+            "country": "MX",
+            "coord": {
+                "lon": -99.101669,
+                "lat": 19.797779
+            }
+        },
+        {
+            "id": 3513967,
+            "name": "Zumpango del Río",
+            "state": "",
+            "country": "MX",
+            "coord": {
+                "lon": -99.5,
+                "lat": 17.65
+            }
+        }
+    ]
+}

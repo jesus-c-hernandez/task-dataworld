@@ -1,5 +1,7 @@
 require('dotenv').config();
+let dayjs = require('dayjs')
 const CronJob = require('cron').CronJob
+// const { cityList } = require('./city-list/city-list2.json')
 const { cityList } = require('./city-list/city-list.json')
 const { asyncForEach } = require('./utils/utils')
 const { dbConnection } = require('./database/config');
@@ -25,6 +27,7 @@ const initWeather = async () => {
     console.log('Date', date);
     if(start > 1605225600){
         console.log('Tarea finalizada', new Date().toISOString());
+        Job.stop()
     }
 }
 
