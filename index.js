@@ -7,7 +7,7 @@ const { getWeather } = require('./services/weather.service');
 const { saveWeather } = require('./services/db.service')
 
 let isDBOnline = false;
-let start = 1603584000;
+let start = 1603670400; // 26/10/2020 12:00:00
 
 const initWeather = async () => {
     // Obtener el arreglo de las ciudades
@@ -20,7 +20,10 @@ const initWeather = async () => {
     })
     // 86400 seg = 1 dia
     start += 86400;
-    if(start > 1605139200){
+    let date  = dayjs.unix(start).toDate();
+    date = dayjs(date).format('YYYY-MM-DD HH:mm:ss');
+    console.log('Date', date);
+    if(start > 1605225600){
         console.log('Tarea finalizada', new Date().toISOString());
     }
 }
@@ -35,7 +38,7 @@ const seconds = Number(process.env.LOOP_EVERY_SECONDS)
 	? Number(process.env.LOOP_EVERY_SECONDS)
 	: 60
 
-    // * * * * * * = 1 segundo
+// * * * * * * = 1 segundo
 const stringTimes = {
 	60: '* * * * *',
 	30: '*/30 * * * * *',
