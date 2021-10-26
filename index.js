@@ -9,7 +9,7 @@ const { getWeather } = require('./services/weather.service');
 const { saveWeather } = require('./services/db.service')
 
 let isDBOnline = false;
-let start = 1603670400; // 26/10/2020 12:00:00
+let start = 1603972800; // 29/10/2020 12:00:00
 
 const initWeather = async () => {
     // Obtener el arreglo de las ciudades

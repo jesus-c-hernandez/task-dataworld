@@ -2,8 +2,21 @@ require('dotenv').config();
 const axios = require('axios');
 
 const getWeather = async(cityId, start) => {
-        const resp = await axios.get( `${process.env.OPW_DIR}id=${cityId}&type=hour&appid=${process.env.appid}&start=${start}&cnt=24`)
-        return resp.data.list;
+    try {
+        const resp = await axios.get( `${process.env.OPW_DIR}id=${cityId}&type=hour&appid=${process.env.API_KEY_OP_1}&start=${start}&cnt=24`);
+        console.log('RESP', resp);
+        return resp.data.list;       
+    } catch (error) {
+        try {
+            console.log('ERROR', error);
+            const resp = await axios.get( `${process.env.OPW_DIR}id=${cityId}&type=hour&appid=${process.env.API_KEY_OP_2}&start=${start}&cnt=24`);
+            return resp.data.list;
+        } catch (error) {
+            console.log('ERROR', error);
+            const resp = await axios.get( `${process.env.OPW_DIR}id=${cityId}&type=hour&appid=${process.env.API_KEY_OP_3}&start=${start}&cnt=24`);
+            return resp.data.list;
+        }
+    }
 }
 
 module.exports = {
