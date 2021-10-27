@@ -9,7 +9,7 @@ const { getWeather } = require('./services/weather.service');
 const { saveWeather } = require('./services/db.service')
 
 let isDBOnline = false;
-let start = 1603933200; // 29/10/2020 01:00:00
+let start = 1604019600; // 29/10/2020 01:00:00
 let counter = 0;
 
 const initWeather = async () => {
