@@ -28,16 +28,17 @@ const initWeather = async () => {
         console.log(counter);
     })
     // 86400 seg = 1 dia
-    // start += 86400;
-    // let date  = dayjs.unix(start).toDate();
-    // date = dayjs(date).format('YYYY-MM-DD HH:mm:ss');
-    // console.log('Date', date);
-    // if(start > 1605225600){
-    //     console.log('Tarea finalizada', new Date().toISOString());
-    //     Job.stop()
-    // }
-    console.log('Tarea finalizada', new Date().toISOString());
-    Job.stop()
+    start += 86400;
+    let date  = dayjs.unix(start).toDate();
+    date = dayjs(date).format('YYYY-MM-DD HH:mm:ss');
+    console.log('Date', date);
+    counter = 0;
+    if(start > 1605308400){
+        console.log('Tarea finalizada', new Date().toISOString());
+        Job.stop()
+    }
+    // console.log('Tarea finalizada', new Date().toISOString());
+    // Job.stop()
 }
 
 const initDB = async () => {

@@ -1,5 +1,6 @@
 require('dotenv').config();
 const axios = require('axios');
+let counter = 0;
 
 const getWeather = async(cityId, start) => {
     try {
