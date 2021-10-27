@@ -9,31 +9,47 @@ const { getWeather } = require('./services/weather.service');
 const { saveWeather } = require('./services/db.service')
 
 let isDBOnline = false;
-let start = 1603972800; // 29/10/2020 12:00:00
+let start = 1603933200; // 29/10/2020 01:00:00
+let counter = 0;
 
 const initWeather = async () => {
     // Obtener el arreglo de las ciudades
+    // const auxCityList = cityList.slice(6172);
+
     await asyncForEach( cityList, async (city) => {
+        console.log(city.name);
         // Hacer la peticion al API Open Weather
         const listWeather = await getWeather(city.id, start);
 
         // Guardar los datos en db
         await saveWeather(city.id, city.name, city.country, listWeather);
+
+        counter++;
+        console.log(counter);
     })
     // 86400 seg = 1 dia
-    start += 86400;
-    let date  = dayjs.unix(start).toDate();
-    date = dayjs(date).format('YYYY-MM-DD HH:mm:ss');
-    console.log('Date', date);
-    if(start > 1605225600){
-        console.log('Tarea finalizada', new Date().toISOString());
-        Job.stop()
-    }
+    // start += 86400;
+    // let date  = dayjs.unix(start).toDate();
+    // date = dayjs(date).format('YYYY-MM-DD HH:mm:ss');
+    // console.log('Date', date);
+    // if(start > 1605225600){
+    //     console.log('Tarea finalizada', new Date().toISOString());
+    //     Job.stop()
+    // }
+    console.log('Tarea finalizada', new Date().toISOString());
+    Job.stop()
 }
 
 const initDB = async () => {
     // Database connection
     await dbConnection();
+}
+
+const test = async () => {
+    console.log('Test');
+    const auxCityList = cityList.slice(4846);
+    console.log(auxCityList);
+    return;
 }
 
 // Pone el valor de cada ciclo según la config, si no lo pone cada 60segs
@@ -62,6 +78,7 @@ const Job = new CronJob( '* * * * * *' , async () => {
             isDBOnline = true;
         }
 		Job.stop()
+        // await test();
         await initWeather();
 		Job.start()
 	} catch (error) {
