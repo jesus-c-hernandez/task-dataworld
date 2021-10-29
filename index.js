@@ -24,7 +24,8 @@ const {
 } = require('./repositories/covid.repository')
 
 let isDBOnline = false;
-let start = 1603584000;
+let start = 1604019600; // 29/10/2020 01:00:00
+let counter = 0;
 
 const initWeather = async() => {
   // Obtener el arreglo de las ciudades

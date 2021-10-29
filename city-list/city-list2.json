@@ -1,0 +1,254 @@
+{
+    "cityList": [
+        {
+            "id": 3482886,
+            "name": "Cuauhtémoc",
+            "state": "",
+            "country": "MX",
+            "coord": {
+                "lon": -98.150002,
+                "lat": 22.533331
+            }
+        },
+        {
+            "id": 3482929,
+            "name": "González",
+            "state": "",
+            "country": "MX",
+            "coord": {
+                "lon": -98.433327,
+                "lat": 22.83333
+            }
+        },
+        {
+            "id": 3483063,
+            "name": "Xicoténcatl",
+            "state": "",
+            "country": "MX",
+            "coord": {
+                "lon": -98.883331,
+                "lat": 23.01667
+            }
+        },
+        {
+            "id": 3483197,
+            "name": "San Fernando",
+            "state": "",
+            "country": "MX",
+            "coord": {
+                "lon": -98.150002,
+                "lat": 24.85
+            }
+        },
+        {
+            "id": 3483393,
+            "name": "Ciudad Gustavo Díaz Ordaz",
+            "state": "",
+            "country": "MX",
+            "coord": {
+                "lon": -98.583328,
+                "lat": 26.23333
+            }
+        },
+        {
+            "id": 3483503,
+            "name": "Tenepanco",
+            "state": "",
+            "country": "MX",
+            "coord": {
+                "lon": -98.966667,
+                "lat": 21.33333
+            }
+        },
+        {
+            "id": 3483989,
+            "name": "Buenavista",
+            "state": "",
+            "country": "MX",
+            "coord": {
+                "lon": -99.599998,
+                "lat": 22.4
+            }
+        },
+        {
+            "id": 3513966,
+            "name": "Zumpango",
+            "state": "",
+            "country": "MX",
+            "coord": {
+                "lon": -99.101669,
+                "lat": 19.797779
+            }
+        },
+        {
+            "id": 3513967,
+            "name": "Zumpango del Río",
+            "state": "",
+            "country": "MX",
+            "coord": {
+                "lon": -99.5,
+                "lat": 17.65
+            }
+        },
+        {
+            "id": 3513969,
+            "name": "Zumpahuacán",
+            "state": "",
+            "country": "MX",
+            "coord": {
+              "lon": -99.550003,
+              "lat": 18.9
+            }
+          },
+          {
+            "id": 3513976,
+            "name": "Zozocolco de Hidalgo",
+            "state": "",
+            "country": "MX",
+            "coord": {
+              "lon": -97.583328,
+              "lat": 20.15
+            }
+          },
+          {
+            "id": 3513977,
+            "name": "Zozocolco de Guerrero",
+            "state": "",
+            "country": "MX",
+            "coord": {
+              "lon": -97.566673,
+              "lat": 20.116671
+            }
+          },
+          {
+            "id": 3514007,
+            "name": "Zongozotla",
+            "state": "",
+            "country": "MX",
+            "coord": {
+              "lon": -97.73333,
+              "lat": 19.98333
+            }
+          },
+          {
+            "id": 3514008,
+            "name": "Zongolica",
+            "state": "",
+            "country": "MX",
+            "coord": {
+              "lon": -96.98333,
+              "lat": 18.66667
+            }
+          },
+          {
+            "id": 3514013,
+            "name": "Santa María Zolotepec",
+            "state": "",
+            "country": "MX",
+            "coord": {
+              "lon": -99.494438,
+              "lat": 19.415831
+            }
+          },
+          {
+            "id": 3514021,
+            "name": "Zitlala",
+            "state": "",
+            "country": "MX",
+            "coord": {
+              "lon": -99.083328,
+              "lat": 17.633329
+            }
+          },
+          {
+            "id": 3514026,
+            "name": "Zinacantán",
+            "state": "",
+            "country": "MX",
+            "coord": {
+              "lon": -92.699997,
+              "lat": 16.75
+            }
+          },
+          {
+            "id": 3514027,
+            "name": "Zimatlán de Álvarez",
+            "state": "",
+            "country": "MX",
+            "coord": {
+              "lon": -96.783333,
+              "lat": 16.866671
+            }
+          },
+          {
+            "id": 3514031,
+            "name": "Zimapan",
+            "state": "",
+            "country": "MX",
+            "coord": {
+              "lon": -99.349998,
+              "lat": 20.75
+            }
+          },
+          {
+            "id": 3514043,
+            "name": "Zempoala",
+            "state": "",
+            "country": "MX",
+            "coord": {
+              "lon": -98.666672,
+              "lat": 19.91667
+            }
+          },
+          {
+            "id": 3514044,
+            "name": "Villa Zempoala",
+            "state": "",
+            "country": "MX",
+            "coord": {
+              "lon": -96.416672,
+              "lat": 19.450001
+            }
+          },
+          {
+            "id": 3514049,
+            "name": "Zaragoza",
+            "state": "",
+            "country": "MX",
+            "coord": {
+              "lon": -97.716667,
+              "lat": 21.283331
+            }
+          },
+          {
+            "id": 3514051,
+            "name": "Zaragoza",
+            "state": "",
+            "country": "MX",
+            "coord": {
+              "lon": -97.550003,
+              "lat": 19.76667
+            }
+          },
+          {
+            "id": 3514052,
+            "name": "Zaragoza de Guadalupe",
+            "state": "",
+            "country": "MX",
+            "coord": {
+              "lon": -99.647217,
+              "lat": 19.14583
+            }
+          },
+          {
+            "id": 3514060,
+            "name": "Zapotlán de Juárez",
+            "state": "",
+            "country": "MX",
+            "coord": {
+              "lon": -98.849998,
+              "lat": 19.966669
+            }
+          }
+    ]
+}
