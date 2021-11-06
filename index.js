@@ -100,8 +100,8 @@ const Job = new CronJob(stringTimes[seconds], async() => {
       isDBOnline = true;
     }
     Job.stop();
-    // await initWeather();
-    await initCovid();
+    await initWeather();
+    // await initCovid();
     Job.start();
     console.log("Tarea finalizada", new Date().toISOString());
   } catch (error) {
