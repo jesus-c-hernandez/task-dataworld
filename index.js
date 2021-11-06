@@ -1,6 +1,6 @@
 require("dotenv").config();
 const CronJob = require("cron").CronJob;
-const { cityList } = require("./lists/city-list.json");
+const { ciudades } = require("./lists/city-list.json");
 const { countryList } = require("./lists/country-list.json");
 const { asyncForEach } = require("./utils/utils");
 const { dbConnection } = require("./database/config");
@@ -24,12 +24,16 @@ const {
 } = require('./repositories/covid.repository')
 
 let isDBOnline = false;
-let start = 1604624400; // Friday, November 6, 2020 1:00:00 AM
-let counter = 0;
+let start = 1604710800; //Saturday, November 7, 2020 1:00:00 AM
+let counter = 1;
 
 const initWeather = async() => {
   // Obtener el arreglo de las ciudades
-  await asyncForEach(cityList, async(city) => {
+  await asyncForEach(ciudades, async(city) => {
+
+    console.log(counter);
+    counter += 1;
+    console.log(city.name);
     // Hacer la peticion al API Open Weather
     const listWeather = await getWeather(city.id, start);
 
