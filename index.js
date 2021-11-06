@@ -82,6 +82,13 @@ const initDB = async() => {
   await dbConnection();
 };
 
+const test = () => {
+  console.log(ciudades[4845]);
+  console.log(ciudades[4846]);
+  console.log(ciudades[4847]);
+
+}
+
 // Pone el valor de cada ciclo según la config, si no lo pone cada 60segs
 const seconds = Number(process.env.LOOP_EVERY_SECONDS) ?
   Number(process.env.LOOP_EVERY_SECONDS) :
@@ -105,6 +112,7 @@ const Job = new CronJob(stringTimes[seconds], async() => {
       isDBOnline = true;
     }
     Job.stop();
+    // test();
     await initWeather();
     // await initCovid();
     Job.start();
