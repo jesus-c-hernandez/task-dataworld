@@ -24,11 +24,7 @@ const {
 } = require('./repositories/covid.repository')
 
 let isDBOnline = false;
-<<<<<<< HEAD
-let start = 1604970000; // Tuesday, November 10, 2020 1:00:00 AM
-=======
 let start = 1604970000; //Tuesday, November 10, 2020 1:00:00 AM
->>>>>>> 24dd6c3c64e19e820cfd22c90a93e633bf760e78
 let counter = 1;
 
 const initWeather = async() => {
