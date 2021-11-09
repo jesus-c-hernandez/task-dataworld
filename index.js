@@ -24,7 +24,7 @@ const {
 } = require('./repositories/covid.repository')
 
 let isDBOnline = false;
-let start = 1604710800; //Saturday, November 7, 2020 1:00:00 AM
+let start = 1604970000; // Tuesday, November 10, 2020 1:00:00 AM
 let counter = 1;
 
 const initWeather = async() => {
@@ -40,9 +40,10 @@ const initWeather = async() => {
     // Guardar los datos en db
     await saveWeather(city.id, city.name, city.country, listWeather);
   });
+  counter = 0;
   // 86400 seg = 1 dia
   start += 86400;
-  if (start > 1605139200) {
+  if (start > 1605747600) { // Thursday, November 19, 2020 1:00:00 AM
     console.log("Tarea finalizada", new Date().toISOString());
   }
 };
