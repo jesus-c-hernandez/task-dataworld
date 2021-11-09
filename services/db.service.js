@@ -1,6 +1,6 @@
 require('dotenv').config()
 var dayjs = require('dayjs')
-const { asyncForEach, formatCovidAux, formatCovidPast } = require('../utils/utils')
+const { asyncForEach, formatCovidAux, formatCovidPast, mainToCode } = require('../utils/utils')
 const { createWeather } = require('../repositories/weather.repository')
 const {
   createCovidCases,
@@ -29,7 +29,8 @@ const saveWeather = async(cityId, name, country, weatherList) => {
       feelsLike: Math.round(weather.main.feels_like - 273),
       windSpeed: weather.wind.speed, // meter/sec
       windDeg: weather.wind.deg, // degrees (meteorological)
-      weatherMain: weather.weather[0].main
+      weatherMain: weather.weather[0].main,
+      weatherMainCode: mainToCode(weather.weather[0].main)
     }
     await createWeather(auxWeather);
   });
