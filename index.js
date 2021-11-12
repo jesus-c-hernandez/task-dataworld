@@ -1,4 +1,5 @@
 require("dotenv").config();
+let dayjs = require('dayjs')
 const CronJob = require("cron").CronJob;
 const { ciudades } = require("./lists/city-list.json");
 const { countryList } = require("./lists/country-list.json");
@@ -7,6 +8,7 @@ const { dbConnection } = require("./database/config");
 const { getWeather } = require("./services/weather.service");
 const {
   saveWeather,
+  delWeather,
   saveCovidCases,
   saveCovidDeaths,
   saveCovidActiveCasesSum,
@@ -24,6 +26,9 @@ const {
 } = require('./repositories/covid.repository')
 
 let isDBOnline = false;
+// let date = dayjs(new Date()).subtract(374, 'day').format('YYYY MM D HH');
+let date = new Date('2020-11-19 00:00:00');
+
 let start = 1604970000; //Tuesday, November 10, 2020 1:00:00 AM
 let counter = 1;
 
@@ -35,10 +40,15 @@ const initWeather = async() => {
     counter += 1;
     console.log(city.name);
     // Hacer la peticion al API Open Weather
-    const listWeather = await getWeather(city.id, start);
+    // const listWeather = await getWeather(city.id, start);
 
-    // Guardar los datos en db
-    await saveWeather(city.id, city.name, city.country, listWeather);
+    // // Guardar los datos en db
+    // await saveWeather(city.id, city.name, city.country, listWeather);
+
+    console.log('DATE', date);
+
+    await delWeather(city.id, date);
+
   });
   counter = 0;
   // 86400 seg = 1 dia

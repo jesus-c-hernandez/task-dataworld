@@ -1,7 +1,7 @@
 require('dotenv').config()
-var dayjs = require('dayjs')
+let dayjs = require('dayjs')
 const { asyncForEach, formatCovidAux, formatCovidPast, mainToCode } = require('../utils/utils')
-const { createWeather } = require('../repositories/weather.repository')
+const { createWeather, deleteWeather } = require('../repositories/weather.repository')
 const {
   createCovidCases,
   createCovidDeaths,
@@ -34,6 +34,10 @@ const saveWeather = async(cityId, name, country, weatherList) => {
     }
     await createWeather(auxWeather);
   });
+}
+
+const delWeather = async (cityId, date) => {
+  await deleteWeather(cityId, date);
 }
 
 
@@ -79,6 +83,7 @@ const saveCovidTestDay = async(covidDataCurrent, covidDataPast) => {
 
 module.exports = {
   saveWeather,
+  delWeather,
   saveCovidCases,
   saveCovidDeaths,
   saveCovidActiveCasesSum,
