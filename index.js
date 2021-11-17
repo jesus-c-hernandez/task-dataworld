@@ -56,11 +56,11 @@ const initWeather = async() => {
   });
   counter = 0;
   // 86400 seg = 1 dia
-  start += 86400;
-  if (start > 1605747600) { // Thursday, November 19, 2020 1:00:00 AM
-    console.log("Tarea finalizada", new Date().toISOString());
-    Job.stop();
-  }
+  // start += 86400;
+  // if (start > 1605747600) { // Thursday, November 19, 2020 1:00:00 AM
+  //   console.log("Tarea finalizada", new Date().toISOString());
+  //   Job.stop();
+  // }
 };
 
 const initDate = () => {
