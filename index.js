@@ -143,7 +143,7 @@ const Job = new CronJob(stringTimes[seconds], async() => {
     Job.stop();
     initDate();
     // await test();
-    // await initWeather();
+    await initWeather();
     // await initCovid();
     Job.start();
     console.log("Tarea finalizada", new Date().toISOString());
