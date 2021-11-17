@@ -1,5 +1,7 @@
 const Weather = require('../models/weather.model')
 const ObjectID = require('mongodb').ObjectID
+const { asyncForEach } = require("../utils/utils");
+
 
 const createWeather = async(auxWeather) => {
   try {
@@ -12,23 +14,19 @@ const createWeather = async(auxWeather) => {
 }
 
 const deleteWeather = async (cityId, date) => {
-  console.log('WEAREPO');
-  console.log(cityId);
-  console.log(date);
-
-
-
   const weathers = await Weather.find(
     { cityId: cityId, 
-      date:  { "$gt": new Date(`${date}`).toISOString()}
+      date:  { "$lt": new Date(`${date}`).toISOString()}
     })
 
-  console.log(weathers[0]._doc._id);
-
-  console.log(ObjectID(weathers[0]._doc._id).toString())
-
-  console.log('WEA', weathers);
-
+  await asyncForEach( weathers, async(weather) => {
+    try {
+      const weatherId = ObjectID(weather._doc._id).toString();
+      await Weather.deleteOne({ _id: weatherId});
+    } catch (error) {
+      console.log(error);
+    }
+  })
   return;
 }
 
