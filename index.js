@@ -52,7 +52,7 @@ const initWeather = async() => {
     // // Guardar los datos en db
     await saveWeather(city.id, city.name, city.country, listWeather);
 
-    await delWeather(city.id, dateDel);
+    // await delWeather(city.id, dateDel);
   });
   counter = 0;
   // 86400 seg = 1 dia
@@ -70,7 +70,7 @@ const initDate = () => {
   } else {
     now = dayjs(new Date(now)).add(1, 'day').format('YYYY-MM-D HH:mm:ss');
   }
-  date = dayjs(new Date(now)).subtract(365 - 4, 'day').format('YYYY-MM-D HH:mm:ss');
+  date = dayjs(new Date(now)).subtract(365 - 1, 'day').format('YYYY-MM-D HH:mm:ss');
   dateDelAux = dayjs(new Date(date)).subtract(8, 'day').format('YYYY-MM-D HH:mm:ss');
   dateDel = new Date(dateDelAux);
   start = parseInt((new Date(date).getTime() / 1000).toFixed(0));
