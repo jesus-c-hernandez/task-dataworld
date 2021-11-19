@@ -65,7 +65,7 @@ const initWeather = async() => {
 
 const initDate = () => {
   if(!initTask){
-    now = dayjs(new Date('2021 11 20 01:00:00')).subtract(6, 'h').format('YYYY-MM-D HH:mm:ss');
+    now = dayjs(new Date('2021 11 14 01:00:00')).format('YYYY-MM-D HH:mm:ss');
     initTask = true;
   } else {
     now = dayjs(new Date(now)).add(1, 'day').format('YYYY-MM-D HH:mm:ss');
