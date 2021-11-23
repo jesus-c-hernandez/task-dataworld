@@ -65,12 +65,12 @@ const initWeather = async() => {
 
 const initDate = () => {
   if(!initTask){
-    now = dayjs(new Date('2021 11 14 01:00:00')).format('YYYY-MM-D HH:mm:ss');
+    now = dayjs(new Date('2021 11 23 01:00:00')).format('YYYY-MM-D HH:mm:ss');
     initTask = true;
   } else {
     now = dayjs(new Date(now)).add(1, 'day').format('YYYY-MM-D HH:mm:ss');
   }
-  date = dayjs(new Date(now)).subtract(365 - 1, 'day').format('YYYY-MM-D HH:mm:ss');
+  date = dayjs(new Date(now)).subtract(365 - 6, 'day').subtract( 6, 'h' ).format('YYYY-MM-D HH:mm:ss');
   dateDelAux = dayjs(new Date(date)).subtract(8, 'day').format('YYYY-MM-D HH:mm:ss');
   dateDel = new Date(dateDelAux);
   start = parseInt((new Date(date).getTime() / 1000).toFixed(0));
@@ -113,7 +113,7 @@ const initDB = async() => {
 
 const test = async () => {
   // ciudadesAux = await ciudades.findIndex( c => c.name === "General Iázaro Cárdenas" );
-  ciudadesAux = await ciudades.slice( 1390 );
+  ciudadesAux = await ciudades.slice( 3537 );
 
   console.log('CIU', ciudadesAux);
 }
@@ -133,7 +133,9 @@ const stringTimes = {
   1: "*/1 * * * * *"
 };
 
-const Job = new CronJob(stringTimes[seconds], async() => {
+// Cada dia a la 1 am = '0 1 * * *'
+
+const Job = new CronJob('*/1 * * * * *', async() => {
   try {
     console.log('Inicio de tarea', new Date());
     if (!isDBOnline) {
