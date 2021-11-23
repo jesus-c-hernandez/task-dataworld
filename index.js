@@ -135,7 +135,7 @@ const stringTimes = {
 
 // Cada dia a la 1 am = '0 1 * * *'
 
-const Job = new CronJob('*/1 * * * * *', async() => {
+const Job = new CronJob('0 2 * * *', async() => {
   try {
     console.log('Inicio de tarea', new Date());
     if (!isDBOnline) {
