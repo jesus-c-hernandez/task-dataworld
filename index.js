@@ -52,7 +52,7 @@ const initWeather = async() => {
     // // Guardar los datos en db
     await saveWeather(city.id, city.name, city.country, listWeather);
 
-    // await delWeather(city.id, dateDel);
+    await delWeather(city.id, dateDel);
   });
   counter = 0;
   // 86400 seg = 1 dia
@@ -133,7 +133,9 @@ const stringTimes = {
   1: "*/1 * * * * *"
 };
 
-// Cada dia a la 1 am = '0 1 * * *'
+// Cada dia a la 1 am (here) = '0 1 * * *'
+// Cada dia a la 1 am (Las Vegas) = '0 23 * * *'
+
 // Cada dia a la 0:15 am = '15 0 * * *'
 
 const Job = new CronJob('15 0 * * *', async() => {
