@@ -1,5 +1,5 @@
-const CovidCase = require('../models/covid-cases.model')
-const CovidDeath = require('../models/covid-deaths.model')
+const CovidCase = require('../models/covid-cases-sum.model')
+const CovidDeath = require('../models/covid-deaths-sum.model')
 const CovidActiveCaseSum = require('../models/covid-active-cases-sum.model')
 const CovidActiveCasesDay = require('../models/covid-active-cases-day.model')
 const CovidRecoveredSum = require('../models/covid-recovered-cases-sum.model')
