@@ -64,13 +64,13 @@ const initWeather = async() => {
 };
 
 const initDate = () => {
-  if(!initTask){
+  if (!initTask) {
     now = dayjs(new Date('2021 11 23 01:00:00')).format('YYYY-MM-D HH:mm:ss');
     initTask = true;
   } else {
     now = dayjs(new Date(now)).add(1, 'day').format('YYYY-MM-D HH:mm:ss');
   }
-  date = dayjs(new Date(now)).subtract(365 - 6, 'day').subtract( 6, 'h' ).format('YYYY-MM-D HH:mm:ss');
+  date = dayjs(new Date(now)).subtract(365 - 6, 'day').subtract(6, 'h').format('YYYY-MM-D HH:mm:ss');
   dateDelAux = dayjs(new Date(date)).subtract(8, 'day').format('YYYY-MM-D HH:mm:ss');
   dateDel = new Date(dateDelAux);
   start = parseInt((new Date(date).getTime() / 1000).toFixed(0));
@@ -78,7 +78,9 @@ const initDate = () => {
 
 const initCovid = async() => {
   // Obtener el arreglo de los paises
-  await asyncForEach(countryList, async(country) => {
+  let newCountries = countryList.filter(w => w.name === 'Peru')
+    // let newCountries = countryList.slice(46, countryList.length)
+  await asyncForEach(newCountries, async(country) => {
     console.log(country);
     // Hacer la peticion al API Nubentus
     const casesData = await CovidService.getTodayCases(country.name);
@@ -93,15 +95,15 @@ const initCovid = async() => {
     const testDataYesterday = await getCovidTestDay(country.name);
 
     // Guardar los datos en db
-    await saveCovidCases(casesData);
-    await saveCovidDeaths(deathsData);
+    // await saveCovidCases(casesData);
+    // await saveCovidDeaths(deathsData);
     await saveCovidActiveCasesSum(activeDataSum);
-    await saveCovidActiveCasesDay(activeDataSum, activeDataYesterday);
+    // await saveCovidActiveCasesDay(activeDataSum, activeDataYesterday);
     await saveCovidRecoveredSum(recoveredDataSum);
-    await saveCovidRecoveredDay(recoveredDataSum, recoveredDataYesterday);
+    // await saveCovidRecoveredDay(recoveredDataSum, recoveredDataYesterday);
     // console.log();
     await saveCovidTestSum(testDataSum);
-    await saveCovidTestDay(testDataSum, testDataYesterday);
+    // await saveCovidTestDay(testDataSum, testDataYesterday);
     // console.log();
   });
 };
@@ -111,9 +113,9 @@ const initDB = async() => {
   await dbConnection();
 };
 
-const test = async () => {
+const test = async() => {
   // ciudadesAux = await ciudades.findIndex( c => c.name === "General Iázaro Cárdenas" );
-  ciudadesAux = await ciudades.slice( 3537 );
+  ciudadesAux = await ciudades.slice(3537);
 
   console.log('CIU', ciudadesAux);
 }
@@ -130,12 +132,13 @@ const stringTimes = {
   120: "*/2 * * * *",
   15: "*/15 * * * * *",
   20: "*/20 * * * * *",
+  10: "*/10 * * * * *",
   1: "*/1 * * * * *"
 };
 
 // Cada dia a la 1 am = '0 1 * * *'
 
-const Job = new CronJob('0 2 * * *', async() => {
+const Job = new CronJob(stringTimes[seconds], async() => {
   try {
     console.log('Inicio de tarea', new Date());
     if (!isDBOnline) {
@@ -145,8 +148,8 @@ const Job = new CronJob('0 2 * * *', async() => {
     Job.stop();
     initDate();
     // await test();
-    await initWeather();
-    // await initCovid();
+    // await initWeather();
+    await initCovid();
     Job.start();
     console.log("Tarea finalizada", new Date().toISOString());
   } catch (error) {
