@@ -36,7 +36,7 @@ const saveWeather = async(cityId, name, country, weatherList) => {
   });
 }
 
-const delWeather = async (cityId, date) => {
+const delWeather = async(cityId, date) => {
   await deleteWeather(cityId, date);
 }
 
@@ -57,7 +57,7 @@ const saveCovidActiveCasesSum = async(covidData) => {
 }
 
 const saveCovidActiveCasesDay = async(covidDataCurrent, covidDataPast) => {
-  let newData = await formatCovidPast(covidDataCurrent, covidDataPast, 1)
+  let newData = await formatCovidPast(covidDataCurrent, covidDataPast, 'ActiveCases')
   await createCovidActiveCasesDay(newData)
 }
 
@@ -67,7 +67,7 @@ const saveCovidRecoveredSum = async(covidData) => {
 }
 
 const saveCovidRecoveredDay = async(covidDataCurrent, covidDataPast) => {
-  let newData = await formatCovidPast(covidDataCurrent, covidDataPast, 1)
+  let newData = await formatCovidPast(covidDataCurrent, covidDataPast, 'RecoveredCases')
   await createCovidRecoveredDay(newData)
 }
 
@@ -77,7 +77,7 @@ const saveCovidTestSum = async(covidData) => {
 }
 
 const saveCovidTestDay = async(covidDataCurrent, covidDataPast) => {
-  let newData = await formatCovidPast(covidDataCurrent, covidDataPast, 1)
+  let newData = await formatCovidPast(covidDataCurrent, covidDataPast, 'TestTotals')
   await createCovidTestDay(newData)
 }
 

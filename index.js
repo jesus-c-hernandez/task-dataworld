@@ -78,6 +78,8 @@ const initDate = () => {
 
 const initCovid = async() => {
   // Obtener el arreglo de los paises
+  // let newCountries = countryList.filter(w => w.name === 'Tunisia')
+  // let newCountries = countryList.slice(38, countryList.length - 1)
   await asyncForEach(countryList, async(country) => {
     console.log(country);
     // Hacer la peticion al API Nubentus
@@ -88,9 +90,9 @@ const initCovid = async() => {
     const testDataSum = await CovidService.getTestTotals(country.name);
 
     //Traer datos de ayer desde la bd
-    // const activeDataYesterday = await getCovidActiveCasesDay(country.name);
-    // const recoveredDataYesterday = await getCovidRecoveredDay(country.name);
-    // const testDataYesterday = await getCovidTestDay(country.name);
+    const activeDataYesterday = await getCovidActiveCasesDay(country.name);
+    const recoveredDataYesterday = await getCovidRecoveredDay(country.name);
+    const testDataYesterday = await getCovidTestDay(country.name);
 
     // Guardar los datos en db
     await saveCovidCases(casesData);
