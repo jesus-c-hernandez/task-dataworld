@@ -98,12 +98,12 @@ const initCovid = async() => {
     await saveCovidCases(casesData);
     await saveCovidDeaths(deathsData);
     await saveCovidActiveCasesSum(activeDataSum);
-    // await saveCovidActiveCasesDay(activeDataSum, activeDataYesterday);
+    await saveCovidActiveCasesDay(activeDataSum, activeDataYesterday);
     await saveCovidRecoveredSum(recoveredDataSum);
-    // await saveCovidRecoveredDay(recoveredDataSum, recoveredDataYesterday);
+    await saveCovidRecoveredDay(recoveredDataSum, recoveredDataYesterday);
     // console.log();
     await saveCovidTestSum(testDataSum);
-    // await saveCovidTestDay(testDataSum, testDataYesterday);
+    await saveCovidTestDay(testDataSum, testDataYesterday);
     // console.log();
   });
 };
