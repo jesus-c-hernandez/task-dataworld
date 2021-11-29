@@ -13,7 +13,7 @@ const formatCovidAux = (covidData) => {
       date: e.date,
       dateQuery: moment(e.date).format("DD-MM-YYYY"),
       country: e.country,
-      data: e.data ? null : 0
+      data: e.data == isNaN(e.data) || e.data == null ? 0 : e.data
     }
   })
   return auxCovid
