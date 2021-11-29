@@ -78,9 +78,9 @@ const initDate = () => {
 
 const initCovid = async() => {
   // Obtener el arreglo de los paises
-  let newCountries = countryList.filter(w => w.name === 'Peru')
-    // let newCountries = countryList.slice(46, countryList.length)
-  await asyncForEach(newCountries, async(country) => {
+  // let newCountries = countryList.filter(w => w.name === 'Peru')
+  // let newCountries = countryList.slice(46, countryList.length)
+  await asyncForEach(countryList, async(country) => {
     console.log(country);
     // Hacer la peticion al API Nubentus
     const casesData = await CovidService.getTodayCases(country.name);
@@ -95,15 +95,15 @@ const initCovid = async() => {
     const testDataYesterday = await getCovidTestDay(country.name);
 
     // Guardar los datos en db
-    // await saveCovidCases(casesData);
-    // await saveCovidDeaths(deathsData);
+    await saveCovidCases(casesData);
+    await saveCovidDeaths(deathsData);
     await saveCovidActiveCasesSum(activeDataSum);
-    // await saveCovidActiveCasesDay(activeDataSum, activeDataYesterday);
+    await saveCovidActiveCasesDay(activeDataSum, activeDataYesterday);
     await saveCovidRecoveredSum(recoveredDataSum);
-    // await saveCovidRecoveredDay(recoveredDataSum, recoveredDataYesterday);
+    await saveCovidRecoveredDay(recoveredDataSum, recoveredDataYesterday);
     // console.log();
     await saveCovidTestSum(testDataSum);
-    // await saveCovidTestDay(testDataSum, testDataYesterday);
+    await saveCovidTestDay(testDataSum, testDataYesterday);
     // console.log();
   });
 };
