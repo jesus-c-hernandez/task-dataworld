@@ -52,7 +52,7 @@ const initWeather = async() => {
     // // Guardar los datos en db
     await saveWeather(city.id, city.name, city.country, listWeather);
 
-    // await delWeather(city.id, dateDel);
+    await delWeather(city.id, dateDel);
   });
   counter = 0;
   // 86400 seg = 1 dia
@@ -65,13 +65,13 @@ const initWeather = async() => {
 
 const initDate = () => {
   if (!initTask) {
-    now = dayjs(new Date('2021 11 23 01:00:00')).format('YYYY-MM-D HH:mm:ss');
+    now = dayjs(new Date('2021 11 29 01:00:00')).format('YYYY-MM-D HH:00:00');
     initTask = true;
   } else {
     now = dayjs(new Date(now)).add(1, 'day').format('YYYY-MM-D HH:mm:ss');
   }
-  date = dayjs(new Date(now)).subtract(365 - 6, 'day').subtract(6, 'h').format('YYYY-MM-D HH:mm:ss');
-  dateDelAux = dayjs(new Date(date)).subtract(8, 'day').format('YYYY-MM-D HH:mm:ss');
+  date = dayjs(new Date(now)).subtract(365 - 7, 'day').add(6, 'h').format('YYYY-MM-D HH:mm:ss');
+  dateDelAux = dayjs(new Date(date)).subtract(9, 'day').format('YYYY-MM-D HH:mm:ss');
   dateDel = new Date(dateDelAux);
   start = parseInt((new Date(date).getTime() / 1000).toFixed(0));
 }
@@ -136,9 +136,12 @@ const stringTimes = {
   1: "*/1 * * * * *"
 };
 
-// Cada dia a la 1 am = '0 1 * * *'
+// Cada dia a la 1 am (here) = '0 1 * * *'
+// Cada dia a la 1 am (Las Vegas) = '0 23 * * *'
 
-const Job = new CronJob(stringTimes[seconds], async() => {
+// Cada dia a la 0:15 am = '15 0 * * *'
+
+const Job = new CronJob('15 0 * * *', async() => {
   try {
     console.log('Inicio de tarea', new Date());
     if (!isDBOnline) {
@@ -148,8 +151,8 @@ const Job = new CronJob(stringTimes[seconds], async() => {
     Job.stop();
     initDate();
     // await test();
-    // await initWeather();
-    await initCovid();
+    await initWeather();
+    // await initCovid();
     Job.start();
     console.log("Tarea finalizada", new Date().toISOString());
   } catch (error) {
