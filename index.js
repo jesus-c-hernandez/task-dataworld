@@ -155,7 +155,7 @@ const Job = new CronJob('15 6 * * *', async() => {
     initDate();
     // await test();
     await initWeather();
-    // await initCovid();
+    await initCovid();
     Job.start();
     console.log("Tarea finalizada", new Date().toISOString());
   } catch (error) {
