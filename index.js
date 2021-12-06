@@ -65,7 +65,7 @@ const initWeather = async() => {
 
 const initDate = () => {
   if (!initTask) {
-    now = dayjs(new Date('2021 11 29 01:00:00')).format('YYYY-MM-D HH:00:00');
+    now = dayjs(new Date('2021 12 04 01:00:00')).format('YYYY-MM-D HH:00:00');
     initTask = true;
   } else {
     now = dayjs(new Date(now)).add(1, 'day').format('YYYY-MM-D HH:mm:ss');
@@ -142,7 +142,7 @@ const stringTimes = {
 // Cada dia a la 1 am (here) = '0 1 * * *'
 // Cada dia a la 1 am (Las Vegas) = '0 23 * * *'
 
-// Cada dia a la 0:15 am = '15 0 * * *'
+// Cada dia a la 0:15 am = '15 6 * * *'
 
 const Job = new CronJob('15 6 * * *', async() => {
   try {
@@ -153,9 +153,9 @@ const Job = new CronJob('15 6 * * *', async() => {
     }
     Job.stop();
     initDate();
+    await initCovid();
     // await test();
     await initWeather();
-    await initCovid();
     Job.start();
     console.log("Tarea finalizada", new Date().toISOString());
   } catch (error) {
